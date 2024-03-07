@@ -1,0 +1,6 @@
+"0","#Instantiate the xgboost model"
+"0","xgboost_spec <- boost_tree("
+"0","  learn_rate = tune())%>%"
+"0","  set_engine(""xgboost"") %>%"
+"0","  set_mode(""classification"")"
+"0",""

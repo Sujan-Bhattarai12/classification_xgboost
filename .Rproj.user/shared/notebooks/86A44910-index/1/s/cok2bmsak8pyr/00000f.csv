@@ -1,0 +1,5 @@
+"0","#Set up a tuning grid. This time use grid_latin_hypercube() to get a representative sampling of the parameter space"
+"0","tree_grid <- grid_latin_hypercube("
+"0","  trees() %>% finalize(mtry = NULL),"
+"0","  size = 20)"
+"0",""

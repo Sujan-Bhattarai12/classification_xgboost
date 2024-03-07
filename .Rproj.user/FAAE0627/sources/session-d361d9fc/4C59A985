@@ -1,7 +1,7 @@
 {
     "id": "4C59A985",
-    "path": "~/MEDS/labs/LAB6/Lab6.Rmd",
-    "project_path": "Lab6.Rmd",
+    "path": "~/MEDS/labs/LAB6/index.Rmd",
+    "project_path": "index.Rmd",
     "type": "r_markdown",
     "hash": "1397490639",
     "contents": "",
@@ -26,7 +26,7 @@
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1709785397178,
+    "last_content_update": 1709785397,
     "read_only": false,
     "read_only_alternatives": []
 }
