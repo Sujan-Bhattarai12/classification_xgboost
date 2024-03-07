@@ -1,3 +1,0 @@
-"0","#use the yardstick package to evaluate the model"
-"0","eel_predictions %>%"
-"0","  metrics(truth = Angaus, estimate = .pred_class)"

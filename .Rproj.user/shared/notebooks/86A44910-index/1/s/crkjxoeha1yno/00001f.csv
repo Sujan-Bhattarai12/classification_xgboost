@@ -1,0 +1,5 @@
+"0","#select the best model"
+"0","best_learn_rate <- learn_rate_tune %>%"
+"0","  select_best(metric = ""roc_auc"")"
+"0",""
+"0","best_learn_rate"

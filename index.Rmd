@@ -1,15 +1,21 @@
 ---
-title: "Lab6"
+title: "XGBoost Algorithm for Species Distribution Modeling"
 author: Sujan Bhattarai
 date: "2023-03-01"
 output:
-  pdf_document: default
-  html_document: default
+  html_document: 
+    toc: true
+    toc_float: true
+    code_folding: show
+    theme: cerulean
+    highlight: kate
+  pdf_document:
+    toc: true
 ---
 
 ## Case Study: Eel Distribution Modeling
 
-This week's lab follows a project modeling the eel species Anguilla australis described by Elith et al. (2008). There are two data sets for this lab. You'll use one for training and evaluating your model, and you'll use your model to make predictions predictions on the other. Then you'll compare your model's performance to the model used by Elith et al.
+This project is for modeling the eel species Anguilla australis described by Elith et al. (2008). There are two data sets for this lab. One for training and evaluating your model, and you'll use your model to make predictions predictions on the other.
 
 ## Data
 
@@ -59,7 +65,6 @@ training_data$Angaus <- as.factor(training_data$Angaus)
 ```
 
 ### Preprocess
-
 Create a recipe to prepare your data for the XGBoost model
 
 ```{r}
@@ -84,7 +89,7 @@ train <- training(eel_split)
 test <-  testing(eel_split)
 ```
 
-
+Create the validation sets with 10 folds for training the model
 ```{r}
 #use 10 fold cross validation to resample the training set
 cv_set <- vfold_cv(train, v = 10, strata = Angaus)
@@ -98,7 +103,6 @@ cv_set <- vfold_cv(train, v = 10, strata = Angaus)
 Following the XGBoost tuning strategy outlined in lecture, first we conduct tuning on just the learning rate parameter:
 
 1.  Create a model specification using {xgboost} for the estimation
-
 -   Only specify one parameter to tune()
 
 ```{r}
@@ -118,7 +122,7 @@ learn_rate_grid <- expand.grid(learn_rate = seq(0.0001, 0.3, length.out = 30))
 
 ```
 
--   Use appropriate metrics argument(s) - Computational efficiency becomes a factor as models get more complex and data get larger. Record the time it takes to run. Do this for each tuning phase you run.You could use {tictoc} or Sys.time().
+-   Use appropriate metrics argument(s) - Computational efficiency becomes a factor as models get more complex and data get larger. Record the time it takes to run. 
 
 ```{r}
 # tune the model with the learning rate grid
@@ -165,8 +169,7 @@ learn_rate_tune %>%
 
 
 ### Tune Tree Parameters
-
-1.  Create a new specification where you set the learning rate (which you already optimized) and tune the tree parameters.
+1.  Create a new specification where you set the learning rate (which is already optimized) and tune the tree parameters.
 ```{r}
 # tune only tree parameters
 xgboost_tree_spec <- boost_tree(
@@ -334,9 +337,9 @@ This is one of the most misleading model accuracy I have ever worked with. I cou
 
 However, we can say the model performed well with an accuracy of 0.86. The model made more false positive errors than false negative errors. The model misclassified 8 of the non-anguas as Anguas. While the model also misclassified 18 Anguas as non Anguas.
 
-## Fit your model the evaluation data and compare performance
+#### Fit your model the evaluation data and compare performance
 
-1.  Now used your final model to predict on the other dataset (eval.data.csv)
+1.  Use final model to predict on the other dataset (eval.data.csv)
 ```{r}
 #change the Angaus column to factor
 evaluation_data$Angaus_obs <- as.factor(evaluation_data$Angaus_obs)
@@ -363,11 +366,11 @@ conf_mat %>%
 
 ```
 
-2.  How does your model perform on this data?
+2.  How does the model perform on this data?
 
 The model performed well with this data with similar high accuracy as with training set. However, the kap accuracy is still 50%, which means this model prediction is just 50% efficient. The model made lots of error in misclasifying true anguas. It misclassified 50 of the true anguas as non-anguas. I consider this as serious false negative issue.
 
-3.  How do your results compare to those of Elith et al.?
+3.  How do the results compare to those of Elith et al.?
 
 The model performed similar to that of Elith et al. The model used by Elith et al. had an accuracy of 0.86 for validation set, which is similar to my model. For training set, Elith had 0.95 for the training sets while my model had an accuracy of 0.85 only.
 
@@ -380,7 +383,7 @@ final_fit %>%
 ```
 
 
--   What do your variable importance results tell you about the distribution of this eel species?
+-   What do variable importance results tell you about the distribution of this eel species?
 
 The variable of importance is in different order compared to Elith paper except for the top most variable. In my model, the most important variable is Summer Temperature, which is same as Elith paper. While the order changed for the rest of the variables. This tells me that the distribution of this eel species is highly dependent on the summer temperature. The other variables are also important but not as important as summer temperature. The changes in order can be acccounted with learning rate chosen by elith and me. He chose 0.005 and number of trees as 1000, becuase there were 1000 sites. But, I use tuning to find the best estimate for those hyperparameters. Since 1000 trees make more sense becuase there were 1000 sites, using niche knowledge is more helpful in this case and I believe Elith result is more  true represenation of the anguas species distribution.
 

@@ -1,0 +1,5 @@
+"0",""
+"0","#show estimates in tables"
+"0","learn_rate_tune %>%"
+"0","  collect_metrics() %>%"
+"0","  filter(.metric == ""roc_auc"")"
