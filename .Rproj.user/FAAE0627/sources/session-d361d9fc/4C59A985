@@ -1,0 +1,32 @@
+{
+    "id": "4C59A985",
+    "path": "~/MEDS/labs/LAB6/Lab6.Rmd",
+    "project_path": "Lab6.Rmd",
+    "type": "r_markdown",
+    "hash": "1397490639",
+    "contents": "",
+    "dirty": false,
+    "created": 1709781360190.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "207,30",
+        "scrollLine": "198",
+        "rmdVisualMode": "false",
+        "rmdVisualWrapConfigured": "true",
+        "docOutlineVisible": "1",
+        "rmdVisualModeLocation": "2591:1984",
+        "rmdVisualCollapsedChunks": "",
+        "docOutlineSize": "113"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1709785397,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1709785397178,
+    "read_only": false,
+    "read_only_alternatives": []
+}
