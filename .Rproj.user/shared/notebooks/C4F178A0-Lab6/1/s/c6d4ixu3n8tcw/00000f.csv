@@ -1,7 +1,0 @@
-"0","# Create a recipe to prepare your data for the XGBoost model"
-"0","eel_recipe <- recipe(Angaus ~ ., data = training_data) %>%"
-"0","  step_naomit(all_predictors()) %>%"
-"0","  step_dummy(all_nominal(), -all_outcomes()) %>%"
-"0","  step_center(all_predictors(), -all_outcomes()) %>%"
-"0","  step_scale(all_predictors(), -all_outcomes())"
-"0",""

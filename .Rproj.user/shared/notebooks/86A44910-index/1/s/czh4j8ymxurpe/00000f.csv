@@ -1,5 +1,0 @@
-"0","#split to 80-20 train and test set"
-"0","set.seed(123)"
-"0","eel_split <- initial_split(training_data, prop = 0.8, strata = Angaus)"
-"0","train <- training(eel_split)"
-"0","test <-  testing(eel_split)"

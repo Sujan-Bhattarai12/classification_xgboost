@@ -1,7 +1,0 @@
-"0",""
-"0","#plot the confusion matrix as image"
-"0","conf_mat <- eel_predictions %>%"
-"0","  conf_mat(truth = Angaus, estimate = .pred_class)"
-"0",""
-"0","conf_mat %>%"
-"0","  autoplot(type = ""heatmap"")"

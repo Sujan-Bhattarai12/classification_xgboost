@@ -1,3 +1,0 @@
-"0","#use 10 fold cross validation to resample the training set"
-"0","cv_set <- vfold_cv(train, v = 10, strata = Angaus)"
-"0",""

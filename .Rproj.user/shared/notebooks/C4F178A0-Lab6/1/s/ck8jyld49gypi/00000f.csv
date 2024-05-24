@@ -1,7 +1,0 @@
-"0","# tune only tree parameters"
-"0","xgboost_tree_spec <- boost_tree("
-"0","  trees = tune(),"
-"0","  learn_rate = best_learn_rate[[1]]) %>%"
-"0","  set_engine(""xgboost"") %>%"
-"0","  set_mode(""classification"")"
-"0",""

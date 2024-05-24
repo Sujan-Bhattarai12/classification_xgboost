@@ -1,4 +1,0 @@
-"0","#set all warnings and messages false and set seed for reproducibility"
-"0","set.seed(123)"
-"0","knitr::opts_chunk$set(warning = FALSE, message = FALSE, cache = T)"
-"0",""
